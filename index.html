@@ -116,20 +116,15 @@
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
                     <div class="flex-shrink-0 flex items-center mr-4">
-                        <!-- Displaying the full event name -->
-                        <span class="text-xl font-extrabold text-au-primary">African Languages Week</span>
+                        <!-- Displaying the full event name --><span class="text-xl font-extrabold text-au-primary">African Languages Week</span>
                     </div>
-                    <!-- African Union Logo in Navbar -->
-                    <div class="flex items-center space-x-3">
-                        <!-- African Union Logo: Using local SVG from root folder -->
-                        <img src="./african-union-logo.svg" 
+                    <!-- African Union Logo in Navbar --><div class="flex items-center space-x-3">
+                        <!-- African Union Logo: Using local SVG from root folder, no circular styling --><img src="./african-union-logo.svg" 
                              alt="African Union Logo" 
-                             class="h-10 w-10 rounded-full border border-gray-200 shadow-sm">
-                    </div>
+                             class="h-10 w-10"> <!-- Removed rounded-full, border, shadow-sm --></div>
                 </div>
                 <div class="flex items-center space-x-4">
-                    <!-- Updated hover color to Red -->
-                    <button class="nav-link text-gray-700 font-semibold transition duration-150" data-view="home">
+                    <!-- Updated hover color to Red --><button class="nav-link text-gray-700 font-semibold transition duration-150" data-view="home">
                         <i data-lucide="home" class="inline-block w-5 h-5 mr-1"></i>
                         Home
                     </button>
@@ -149,19 +144,14 @@
                 
                 <!-- Main Awareness Content (now full width) --><div class="md:col-span-1">
                     
-                    <!-- Date Tag (Green) -->
-                    <span class="text-sm font-semibold uppercase tracking-wider text-au-primary bg-green-50 px-3 py-1 rounded-full mb-3 inline-block shadow-sm">February 21 - 28, 2026</span>
+                    <!-- Date Tag (Green) --><span class="text-sm font-semibold uppercase tracking-wider text-au-primary bg-green-50 px-3 py-1 rounded-full mb-3 inline-block shadow-sm">February 21 - 28, 2026</span>
                     
-                    <!-- Theme with Gold Accent -->
-                    <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-4 text-gray-900">
-                        <!-- Green text -->
-                        <span class="text-au-primary">My language,</span> 
-                        <!-- Gold text -->
-                        <span class="text-au-secondary">my heritage, my dignity!</span>
+                    <!-- Theme with Gold Accent --><h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-4 text-gray-900">
+                        <!-- Green text --><span class="text-au-primary">My language,</span> 
+                        <!-- Gold text --><span class="text-au-secondary">my heritage, my dignity!</span>
                     </h1>
                     
-                    <!-- Gold Divider Line -->
-                    <div class="h-1 w-24 bg-[--au-gold] rounded-full mb-6"></div>
+                    <!-- Gold Divider Line --><div class="h-1 w-24 bg-[--au-gold] rounded-full mb-6"></div>
                     
                     <p class="text-xl text-gray-700 mb-6 leading-relaxed">
                         The African Languages Week is a perpetual event, established by the African Union, to commemorate the relevance of African languages and cultures as a factor for peace, prosperity, and integration across the continent and the diaspora.
@@ -263,20 +253,14 @@
             // Function to render the event cards
             function renderEventCards() {
                 eventGrid.innerHTML = events.map(event => `
-                    <!-- Added relative and overflow-hidden for the accent stripe -->
-                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-200 shadow-md hover:shadow-lg transition duration-300 card relative overflow-hidden">
-                        <!-- Red Accent Stripe -->
-                        <div class="absolute top-0 left-0 w-full h-1 bg-au-red rounded-t-xl"></div> 
+                    <!-- Added relative and overflow-hidden for the accent stripe --><div class="bg-gray-50 p-6 rounded-xl border border-gray-200 shadow-md hover:shadow-lg transition duration-300 card relative overflow-hidden">
+                        <!-- Red Accent Stripe --><div class="absolute top-0 left-0 w-full h-1 bg-au-red rounded-t-xl"></div> 
 
-                        <div class="flex items-center justify-between mb-3 mt-1"> <!-- Added mt-1 to account for stripe -->
-                            <!-- Use AU Green for the event type tag -->
-                            <span class="text-xs font-semibold uppercase tracking-wider text-white bg-au-primary px-3 py-1 rounded-full shadow-sm">${event.type}</span>
+                        <div class="flex items-center justify-between mb-3 mt-1"> <!-- Added mt-1 to account for stripe --><!-- Use AU Green for the event type tag --><span class="text-xs font-semibold uppercase tracking-wider text-white bg-au-primary px-3 py-1 rounded-full shadow-sm">${event.type}</span>
                             <i data-lucide="bookmark" class="w-5 h-5 text-gray-400"></i>
                         </div>
-                        <!-- EVENT NAME (Title) - Now with mb-1 for closer proximity to theme -->
-                        <h3 class="text-xl font-bold text-gray-900 mb-1">${event.title}</h3>
-                        <!-- THEME - Now with lighter text color (text-gray-500) for less visual weight -->
-                        <p class="text-sm text-gray-500 mb-4">
+                        <!-- EVENT NAME (Title) - Now with mb-1 for closer proximity to theme --><h3 class="text-xl font-bold text-gray-900 mb-1">${event.title}</h3>
+                        <!-- THEME - Now with lighter text color (text-gray-500) for less visual weight --><p class="text-sm text-gray-500 mb-4">
                             ${event.theme}
                         </p>
                         <div class="space-y-2 text-sm text-gray-700 mb-4">
