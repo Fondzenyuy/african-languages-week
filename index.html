@@ -15,7 +15,7 @@
             --au-gold: #FFD700; /* Yellow */
             --au-red: #DE2223;    /* Red, similar to African flags */
             --au-gold-light: #FFEB99;
-            /* --- NEW: Background Image Variable --- */
+            /* Background Image Variable */
             --background-image: url('./alwbkg.png'); 
         }
 
@@ -114,76 +114,84 @@
 <body class="min-h-screen">
 
     <nav class="bg-white shadow-lg sticky top-0 z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0 flex items-center mr-4">
-                        <span class="text-xl font-extrabold text-au-primary">African Languages Week</span>
-                    </div>
-                    <div class="flex items-center space-x-3">
-                        <img src="./african-union-logo.svg" 
-                             alt="African Union Logo" 
-                             class="h-10 w-10"> </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-16">
+            
+            <div class="flex items-center min-w-0">
+                <div class="flex-shrink-0 flex items-center mr-4">
+                    <span class="text-lg sm:text-xl font-extrabold text-au-primary truncate">African Languages Week</span>
                 </div>
-                <div class="flex items-center space-x-4">
-                    <button class="nav-link text-gray-700 font-semibold transition duration-150" data-view="home">
-                        <i data-lucide="home" class="inline-block w-5 h-5 mr-1"></i>
-                        Home
-                    </button>
-                    <button class="nav-link text-gray-700 font-semibold transition duration-150" data-view="catalog">
-                        <i data-lucide="calendar-check" class="inline-block w-5 h-5 mr-1"></i>
-                        Event Catalog
-                    </button>
+                <div class="flex items-center space-x-3">
+                    <img src="./african-union-logo.svg" 
+                         alt="African Union Logo" 
+                         class="h-10 w-10 flex-shrink-0"> 
                 </div>
             </div>
+
+            <div class="hidden sm:flex items-center space-x-4">
+                <button class="nav-link text-gray-700 font-semibold transition duration-150" data-view="home">
+                    <i data-lucide="home" class="inline-block w-5 h-5 mr-1"></i>
+                    Home
+                </button>
+                <button class="nav-link text-gray-700 font-semibold transition duration-150" data-view="catalog">
+                    <i data-lucide="calendar-check" class="inline-block w-5 h-5 mr-1"></i>
+                    Event Catalog
+                </button>
+            </div>
+            
+            <div class="flex items-center sm:hidden">
+                 <button class="text-gray-700 hover:text-au-red p-2 rounded-md">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                 </button>
+            </div>
+
         </div>
     </nav>
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
-        <section id="home" class="content-section p-8 bg-white rounded-xl shadow-2xl card">
+        <section id="home" class="content-section p-6 sm:p-8 bg-white rounded-xl shadow-2xl card">
             <div class="grid md:grid-cols-1 gap-10 items-start">
                 
                 <div class="md:col-span-1">
                     
-                    <span class="text-sm font-semibold uppercase tracking-wider text-au-primary bg-green-50 px-3 py-1 rounded-full mb-3 inline-block shadow-sm">February 21 - 28, 2026</span>
+                    <span class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-au-primary bg-green-50 px-3 py-1 rounded-full mb-3 inline-block shadow-sm">February 21 - 28, 2026</span>
                     
-                    <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-4 text-gray-900">
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-4 text-gray-900">
                         <span class="text-au-primary">My language,</span> 
                         <span class="text-au-secondary">my heritage, my dignity!</span>
                     </h1>
                     
                     <div class="h-1 w-24 bg-[--au-gold] rounded-full mb-6"></div>
                     
-                    <p class="text-xl text-gray-700 mb-6 leading-relaxed">
+                    <p class="text-base sm:text-xl text-gray-700 mb-6 leading-relaxed">
                         The African Languages Week is a perpetual event, established by the African Academy of Languages (ACALAN) - African Union, to commemorate the relevance of African languages and cultures as a factor for peace, prosperity, and integration across the continent and the diaspora.
                     </p>
                     <div class="space-y-4">
                         <div class="flex items-start">
-                            <i data-lucide="message-square-text" class="w-6 h-6 text-au-primary mt-1 flex-shrink-0 mr-3"></i>
-                            <p class="text-gray-700">
+                            <i data-lucide="message-square-text" class="w-5 h-5 sm:w-6 sm:h-6 text-au-primary mt-1 flex-shrink-0 mr-3"></i>
+                            <p class="text-sm sm:text-base text-gray-700">
                                 <strong class="font-semibold">Goal:</strong> Empowering African languages and promoting their use in all domains of society, from education to digital platforms.
                             </p>
                         </div>
                         <div class="flex items-start">
-                            <i data-lucide="globe" class="w-6 h-6 text-au-primary mt-1 flex-shrink-0 mr-3"></i>
-                            <p class="text-gray-700">
+                            <i data-lucide="globe" class="w-5 h-5 sm:w-6 sm:h-6 text-au-primary mt-1 flex-shrink-0 mr-3"></i>
+                            <p class="text-sm sm:text-base text-gray-700">
                                 <strong class="font-semibold">Impact:</strong> Unlocking economic opportunities, advancing educational equity, and fostering social transformation within communities.
                             </p>
                         </div>
                     </div>
                     
-                    <a href="#catalog" class="mt-8 inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-full text-white bg-au-primary hover:bg-[--au-green-dark] btn-primary">
+                    <a href="#catalog" class="mt-8 inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 border border-transparent text-base sm:text-lg font-medium rounded-full text-white bg-au-primary hover:bg-[--au-green-dark] btn-primary">
                         Explore Upcoming Events
-                        <i data-lucide="arrow-right" class="w-5 h-5 ml-2"></i>
+                        <i data-lucide="arrow-right" class="w-4 h-4 sm:w-5 sm:h-5 ml-2"></i>
                     </a>
                 </div>
             </div>
         </section>
 
-        <section id="catalog" class="content-section p-8 bg-white rounded-xl shadow-2xl card">
-            <h2 class="text-4xl font-extrabold mb-2 text-gray-900">Global African Languages Catalog</h2>
-            <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+        <section id="catalog" class="content-section p-6 sm:p-8 bg-white rounded-xl shadow-2xl card">
+            <h2 class="text-3xl sm:text-4xl font-extrabold mb-2 text-gray-900">Global African Languages Catalog</h2>
+            <p class="text-base sm:text-lg text-gray-600 mb-8 leading-relaxed">
                 A curated list of talks, workshops, conferences, and academic events worldwide focusing on African languages and linguistics.
             </p>
 
@@ -206,7 +214,7 @@
                     location: "Accra, Ghana & Online",
                     theme: "Language Justice: African Languages for Social and Economic Development",
                     type: "Conference",
-                    link: "https://africanlanguagesconf.org/" // Updated placeholder
+                    link: "https://africanlanguagesconf.org/"
                 },
                 {
                     title: "55th Colloquium on African Languages and Linguistics (CALL 2026)",
@@ -214,7 +222,7 @@
                     location: "Leiden, Netherlands & Online",
                     theme: "Contemporary African Linguistics Research",
                     type: "Academic Talk/Workshop",
-                    link: "https://www.universiteitleiden.nl/en/events/2026/08/55th-colloquium-on-african-languages-and-linguistics" // Updated placeholder
+                    link: "https://www.universiteitleiden.nl/en/events/2026/08/55th-colloquium-on-african-languages-and-linguistics"
                 },
                 {
                     title: "International Conference on Language Policy and Planning (ICLPP)",
@@ -222,7 +230,7 @@
                     location: "Banjul, Gambia",
                     theme: "Policy Development for Linguistic Inclusion in Africa",
                     type: "Policy Workshop",
-                    link: "javascript:void(0)" // Updated placeholder
+                    link: "javascript:void(0)"
                 },
                 {
                     title: "Digital Innovation in African Languages Summit",
@@ -230,7 +238,7 @@
                     location: "Online",
                     theme: "Building Technology and AI in African Languages",
                     type: "Workshop/Talks",
-                    link: "javascript:void(0)" // Updated placeholder
+                    link: "javascript:void(0)"
                 },
                 {
                     title: "African Language Teachers Association (ALTA) Conference",
@@ -238,7 +246,7 @@
                     location: "Virtual & Local Host TBD",
                     theme: "Integrating Pedagogy and Cultural Context in Teaching",
                     type: "Education Conference",
-                    link: "javascript:void(0)" // Updated placeholder
+                    link: "javascript:void(0)"
                 },
                 {
                     title: "Cultural Economy & Linguistic Heritage Forum",
@@ -246,7 +254,7 @@
                     location: "Cape Town, South Africa",
                     theme: "Language as Heritage and Economic Asset",
                     type: "Forum/Discussion",
-                    link: "javascript:void(0)" // Updated placeholder
+                    link: "javascript:void(0)"
                 }
             ];
 
@@ -258,11 +266,12 @@
                     <div class="bg-gray-50 p-6 rounded-xl border border-gray-200 shadow-md hover:shadow-lg transition duration-300 card relative overflow-hidden">
                         <div class="absolute top-0 left-0 w-full h-1 bg-au-red rounded-t-xl"></div> 
 
-                        <div class="flex items-center justify-between mb-3 mt-1"> <span class="text-xs font-semibold uppercase tracking-wider text-white bg-au-primary px-3 py-1 rounded-full shadow-sm">${event.type}</span>
+                        <div class="flex items-center justify-between mb-3 mt-1"> 
+                            <span class="text-xs font-semibold uppercase tracking-wider text-white bg-au-primary px-3 py-1 rounded-full shadow-sm">${event.type}</span>
                             <i data-lucide="bookmark" class="w-5 h-5 text-gray-400"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-1">${event.title}</h3>
-                        <p class="text-sm text-gray-500 mb-4">
+                        <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-1">${event.title}</h3>
+                        <p class="text-xs sm:text-sm text-gray-500 mb-4">
                             ${event.theme}
                         </p>
                         <div class="space-y-2 text-sm text-gray-700 mb-4">
