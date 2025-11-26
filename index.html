@@ -114,37 +114,33 @@
 <body class="min-h-screen">
 
     <nav class="bg-white shadow-lg sticky top-0 z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-16">
-            
-            <div class="flex items-center min-w-0">
-                <div class="flex-shrink-0 flex items-center mr-4">
-                    <span class="text-lg sm:text-xl font-extrabold text-au-primary truncate">African Languages Week</span>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 sm:h-auto sm:pb-0">
+                
+                <div class="flex items-center min-w-0 py-3 sm:py-0">
+                    <div class="flex-shrink-0 flex items-center mr-4">
+                        <span class="text-lg sm:text-xl font-extrabold text-au-primary truncate">African Languages Week</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <img src="./african-union-logo.svg" 
+                             alt="African Union Logo" 
+                             class="h-10 w-10 flex-shrink-0"> 
+                    </div>
                 </div>
-                <div class="flex items-center space-x-3">
-                    <img src="./african-union-logo.svg" 
-                         alt="African Union Logo" 
-                         class="h-10 w-10 flex-shrink-0"> 
+
+                <div class="flex items-center space-x-4 sm:space-x-8">
+                    <button class="nav-link text-gray-700 font-semibold transition duration-150 py-2 sm:py-0" data-view="home">
+                        <i data-lucide="home" class="inline-block w-5 h-5 mr-1"></i>
+                        <span class="hidden sm:inline">Home</span>
+                    </button>
+                    <button class="nav-link text-gray-700 font-semibold transition duration-150 py-2 sm:py-0" data-view="catalog">
+                        <i data-lucide="calendar-check" class="inline-block w-5 h-5 mr-1"></i>
+                        <span class="hidden sm:inline">Event Catalog</span>
+                        <span class="inline sm:hidden">Events</span> </button>
                 </div>
             </div>
-
-            <div class="hidden sm:flex items-center space-x-4">
-                <button class="nav-link text-gray-700 font-semibold transition duration-150" data-view="home">
-                    <i data-lucide="home" class="inline-block w-5 h-5 mr-1"></i>
-                    Home
-                </button>
-                <button class="nav-link text-gray-700 font-semibold transition duration-150" data-view="catalog">
-                    <i data-lucide="calendar-check" class="inline-block w-5 h-5 mr-1"></i>
-                    Event Catalog
-                </button>
-            </div>
             
-            <div class="flex items-center sm:hidden">
-                 <button class="text-gray-700 hover:text-au-red p-2 rounded-md">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
-                 </button>
             </div>
-
-        </div>
     </nav>
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -181,10 +177,11 @@
                         </div>
                     </div>
                     
-                    <a href="#catalog" class="mt-8 inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 border border-transparent text-base sm:text-lg font-medium rounded-full text-white bg-au-primary hover:bg-[--au-green-dark] btn-primary">
-                        Explore Upcoming Events
+                    <button data-view="catalog" class="nav-link mt-8 inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 border border-transparent text-base sm:text-lg font-medium rounded-full text-white bg-au-primary hover:bg-[--au-green-dark] btn-primary">
+                        <span class="hidden sm:inline">External Events</span>
+                        <span class="inline sm:hidden">View Events</span>
                         <i data-lucide="arrow-right" class="w-4 h-4 sm:w-5 sm:h-5 ml-2"></i>
-                    </a>
+                    </button>
                 </div>
             </div>
         </section>
@@ -296,7 +293,8 @@
             // Simple SPA View Controller
             const homeView = document.getElementById('home');
             const catalogView = document.getElementById('catalog');
-            const navLinks = document.querySelectorAll('.nav-link');
+            // Select ALL elements with the .nav-link class, including the new button on the home page.
+            const navLinks = document.querySelectorAll('.nav-link'); 
 
             function showView(viewId) {
                 homeView.style.display = 'none';
@@ -307,8 +305,10 @@
                     targetView.style.display = 'block';
                 }
 
-                // Update active state: Active page gets Gold text and Green underline
-                navLinks.forEach(link => {
+                // Update active state for the NAVBAR links only (not the button in the home content)
+                const navbarLinks = document.querySelectorAll('.nav-link[data-view="home"], .nav-link[data-view="catalog"]');
+                
+                navbarLinks.forEach(link => {
                     if (link.dataset.view === viewId) {
                         // Active: Gold Text, Green Border (primary color)
                         link.classList.add('text-au-secondary', 'border-b-2', 'border-au-primary');
@@ -321,7 +321,7 @@
                 });
             }
 
-            // Event listeners for navigation
+            // Event listeners for all navigation elements
             navLinks.forEach(link => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
