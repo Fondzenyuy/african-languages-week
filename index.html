@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>African Languages Week 2026 - Language Justice</title>
+    <!-- Load Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide icons for a clean aesthetic --><script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts for better typography --><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Define AU colors for consistency: Green (#009E49), Gold (#FFD700), and Red (#DE2223) */
+        :root {
+            --au-green: #009E49;
+            --au-green-dark: #007F3C;
+            --au-gold: #FFD700; /* Yellow */
+            --au-red: #DE2223;   /* Red, similar to African flags */
+            --au-gold-light: #FFEB99;
+        }
+
+        /* Custom utility classes for the new colors */
+        .text-au-secondary { color: var(--au-gold); }
+        .text-au-red { color: var(--au-red); }
+        .bg-au-red { background-color: var(--au-red); }
+        
+
+        /* Custom styles for the Inter font and default background */
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #2D3748; /* Dark text for readability */
+            background-color: #f0f2f5; /* Used for visual buffer/edges */
+            position: relative;
+            z-index: 0;
+        }
+
+        /* 1. The Filtered Background Image Layer (Deepest Layer) */
+        body::before {
+            content: "";
+            position: fixed; /* Ensures background stays put as content scrolls */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: var(--background-image);
+            background-size: cover;
+            background-position: center center;
+            
+            /* Apply B&W filter and blur, as requested */
+            filter: grayscale(100%) blur(4px); 
+            
+            z-index: -2; /* Deepest layer */
+        }
+        
+        /* 2. The Dark Overlay for Content Contrast (Mid Layer) */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* Dark semi-transparent overlay for content readability over the filtered background image */
+            background: rgba(0, 0, 0, 0.65); /* Slightly darker overlay for better contrast */
+            z-index: -1; /* Layer on top of the image filter */
+        }
+
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif; /* Elegant font for headings */
+            color: #1a202c;
+        }
+        
+        /* Apply AU Green as the main text accent color */
+        .text-au-primary { color: var(--au-green); } 
+        /* Apply the main button color */
+        .bg-au-primary { background-color: var(--au-green); }
+        
+        /* Apply smooth transition and shadow for buttons/cards (Outlook style) */
+        .btn-primary {
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 12px -2px rgba(0, 0, 0, 0.1), 0 3px 7px -3px rgba(0, 0, 0, 0.08); /* Stronger shadow */
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1); /* Even stronger on hover */
+        }
+
+        /* Enhanced card styles */
+        .card {
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 8px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            transition: all 0.2s ease-in-out;
+            /* Adjusted opacity for content blocks */
+            background-color: rgba(255, 255, 255, 0.85); 
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px -4px rgba(0, 0, 0, 0.12), 0 6px 8px -4px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Style for the main container to manage view switching */
+        .content-section {
+            display: none;
+        }
+        
+        /* Style the navigation hover effect with Red */
+        .nav-link:hover {
+            color: var(--au-red); 
+            transition: color 0.15s ease-in-out;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Navbar --><nav class="bg-white shadow-lg sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center mr-4">
+                        <!-- Displaying the full event name -->
+                        <span class="text-xl font-extrabold text-au-primary">African Languages Week</span>
+                    </div>
+                    <!-- AU and ACALAN Logos in Navbar --><div class="flex items-center space-x-3">
+                        <div class="h-10 w-10 border-2 border-dashed border-gray-300 rounded-full flex items-center justify-center bg-white shadow-sm text-xs text-gray-500">AU</div>
+                        <div class="h-10 w-10 border-2 border-dashed border-gray-300 rounded-full flex items-center justify-center bg-white shadow-sm text-xs text-gray-500">ACALAN</div>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <!-- Updated hover color to Red -->
+                    <button class="nav-link text-gray-700 font-semibold transition duration-150" data-view="home">
+                        <i data-lucide="home" class="inline-block w-5 h-5 mr-1"></i>
+                        Home
+                    </button>
+                    <button class="nav-link text-gray-700 font-semibold transition duration-150" data-view="catalog">
+                        <i data-lucide="calendar-check" class="inline-block w-5 h-5 mr-1"></i>
+                        Event Catalog
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- 1. HOME/AWARENESS SECTION --><section id="home" class="content-section p-8 bg-white rounded-xl shadow-2xl card">
+            <div class="grid md:grid-cols-1 gap-10 items-start">
+                
+                <!-- Main Awareness Content (now full width) --><div class="md:col-span-1">
+                    
+                    <!-- Date Tag (Green) -->
+                    <span class="text-sm font-semibold uppercase tracking-wider text-au-primary bg-green-50 px-3 py-1 rounded-full mb-3 inline-block shadow-sm">February 21 - 28, 2026</span>
+                    
+                    <!-- Theme with Gold Accent -->
+                    <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-4 text-gray-900">
+                        <!-- Green text -->
+                        <span class="text-au-primary">My language,</span> 
+                        <!-- Gold text -->
+                        <span class="text-au-secondary">my heritage, my dignity!</span>
+                    </h1>
+                    
+                    <!-- Gold Divider Line -->
+                    <div class="h-1 w-24 bg-[--au-gold] rounded-full mb-6"></div>
+                    
+                    <p class="text-xl text-gray-700 mb-6 leading-relaxed">
+                        The African Languages Week is a perpetual event, established by the African Union, to commemorate the relevance of African languages and cultures as a factor for peace, prosperity, and integration across the continent and the diaspora.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i data-lucide="message-square-text" class="w-6 h-6 text-au-primary mt-1 flex-shrink-0 mr-3"></i>
+                            <p class="text-gray-700">
+                                <strong class="font-semibold">Goal:</strong> Empowering African languages and promoting their use in all domains of society, from education to digital platforms.
+                            </p>
+                        </div>
+                        <div class="flex items-start">
+                            <i data-lucide="globe" class="w-6 h-6 text-au-primary mt-1 flex-shrink-0 mr-3"></i>
+                            <p class="text-gray-700">
+                                <strong class="font-semibold">Impact:</strong> Unlocking economic opportunities, advancing educational equity, and fostering social transformation within communities.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <a href="#catalog" class="mt-8 inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-full text-white bg-au-primary hover:bg-[--au-green-dark] btn-primary">
+                        Explore Upcoming Events
+                        <i data-lucide="arrow-right" class="w-5 h-5 ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. EVENT CATALOG SECTION --><section id="catalog" class="content-section p-8 bg-white rounded-xl shadow-2xl card">
+            <h2 class="text-4xl font-extrabold mb-2 text-gray-900">Global African Languages Catalog</h2>
+            <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                A curated list of talks, workshops, conferences, and academic events worldwide focusing on African languages and linguistics.
+            </p>
+
+            <!-- Event Card Grid --><div id="event-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Events will be populated here by JavaScript --></div>
+        </section>
+
+    </main>
+
+    <script>
+        // --- MAIN INITIALIZATION ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // Replaces all 'data-lucide' tags with actual SVG icons
+            lucide.createIcons();
+
+            const events = [
+                {
+                    title: "African Languages Conference (AFLC 2026)",
+                    dates: "February 23 - 28, 2026",
+                    location: "Accra, Ghana & Online",
+                    theme: "Language Justice: African Languages for Social and Economic Development",
+                    type: "Conference",
+                    link: "#"
+                },
+                {
+                    title: "55th Colloquium on African Languages and Linguistics (CALL 2026)",
+                    dates: "August 24 - 26, 2026",
+                    location: "Leiden, Netherlands & Online",
+                    theme: "Contemporary African Linguistics Research",
+                    type: "Academic Talk/Workshop",
+                    link: "#"
+                },
+                {
+                    title: "International Conference on Language Policy and Planning (ICLPP)",
+                    dates: "Q1 2026 (TBD)",
+                    location: "Banjul, Gambia",
+                    theme: "Policy Development for Linguistic Inclusion in Africa",
+                    type: "Policy Workshop",
+                    link: "#"
+                },
+                {
+                    title: "Digital Innovation in African Languages Summit",
+                    dates: "April 10 - 12, 2026",
+                    location: "Online",
+                    theme: "Building Technology and AI in African Languages",
+                    type: "Workshop/Talks",
+                    link: "#"
+                },
+                {
+                    title: "African Language Teachers Association (ALTA) Conference",
+                    dates: "Late March 2026 (TBD)",
+                    location: "Virtual & Local Host TBD",
+                    theme: "Integrating Pedagogy and Cultural Context in Teaching",
+                    type: "Education Conference",
+                    link: "#"
+                },
+                {
+                    title: "Cultural Economy & Linguistic Heritage Forum",
+                    dates: "September 2026 (TBD)",
+                    location: "Cape Town, South Africa",
+                    theme: "Language as Heritage and Economic Asset",
+                    type: "Forum/Discussion",
+                    link: "#"
+                }
+            ];
+
+            const eventGrid = document.getElementById('event-grid');
+
+            // Function to render the event cards
+            function renderEventCards() {
+                eventGrid.innerHTML = events.map(event => `
+                    <!-- Added relative and overflow-hidden for the accent stripe -->
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-200 shadow-md hover:shadow-lg transition duration-300 card relative overflow-hidden">
+                        <!-- Red Accent Stripe -->
+                        <div class="absolute top-0 left-0 w-full h-1 bg-au-red rounded-t-xl"></div> 
+
+                        <div class="flex items-center justify-between mb-3 mt-1"> <!-- Added mt-1 to account for stripe -->
+                            <!-- Use AU Green for the event type tag -->
+                            <span class="text-xs font-semibold uppercase tracking-wider text-white bg-au-primary px-3 py-1 rounded-full shadow-sm">${event.type}</span>
+                            <i data-lucide="bookmark" class="w-5 h-5 text-gray-400"></i>
+                        </div>
+                        <!-- EVENT NAME (Title) - Now with mb-1 for closer proximity to theme -->
+                        <h3 class="text-xl font-bold text-gray-900 mb-1">${event.title}</h3>
+                        <!-- THEME - Now with lighter text color (text-gray-500) for less visual weight -->
+                        <p class="text-sm text-gray-500 mb-4">
+                            ${event.theme}
+                        </p>
+                        <div class="space-y-2 text-sm text-gray-700 mb-4">
+                            <div class="flex items-center">
+                                <i data-lucide="calendar" class="w-4 h-4 mr-2 text-au-primary"></i>
+                                <span>${event.dates}</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i data-lucide="map-pin" class="w-4 h-4 mr-2 text-au-primary"></i>
+                                <span>${event.location}</span>
+                            </div>
+                        </div>
+                        <a href="${event.link}" target="_blank" class="mt-4 block text-center px-4 py-2 border border-au-primary text-sm font-medium rounded-lg text-au-primary hover:bg-au-primary hover:text-white transition duration-200 btn-primary">
+                            View Details
+                        </a>
+                    </div>
+                `).join('');
+                // Re-create icons for the newly rendered cards
+                lucide.createIcons();
+            }
+
+            // Simple SPA View Controller
+            const homeView = document.getElementById('home');
+            const catalogView = document.getElementById('catalog');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            function showView(viewId) {
+                homeView.style.display = 'none';
+                catalogView.style.display = 'none';
+
+                const targetView = document.getElementById(viewId);
+                if (targetView) {
+                    targetView.style.display = 'block';
+                }
+
+                // Update active state: Active page gets Gold text and Green underline
+                navLinks.forEach(link => {
+                    if (link.dataset.view === viewId) {
+                        // Active: Gold Text, Green Border (primary color)
+                        link.classList.add('text-au-secondary', 'border-b-2', 'border-au-primary');
+                        link.classList.remove('text-gray-700', 'hover:text-[--au-red]');
+                    } else {
+                        // Inactive: Gray Text, Red Hover, no border
+                        link.classList.remove('text-au-secondary', 'border-b-2', 'border-au-primary');
+                        link.classList.add('text-gray-700', 'hover:text-[--au-red]');
+                    }
+                });
+            }
+
+            // Event listeners for navigation
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showView(link.dataset.view);
+                });
+            });
+
+            // Handle hash links for initial load
+            const initialView = window.location.hash.substring(1) || 'home';
+            showView(initialView === 'catalog' ? 'catalog' : 'home');
+
+            // Render the events initially
+            renderEventCards();
+            
+            // Re-create icons one last time for dynamic buttons/loaders
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
