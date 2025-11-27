@@ -46,7 +46,7 @@
             background-size: cover;
             background-position: center center;
             
-            /* Apply B&W filter and blur, as requested */
+            /* ADJUSTED: Fully grayscale (100%) and 4px blur */
             filter: grayscale(100%) blur(4px); 
             
             z-index: -2; /* Deepest layer */
@@ -60,8 +60,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            /* Dark semi-transparent overlay for content readability over the filtered background image */
-            background: rgba(0, 0, 0, 0.65); /* Slightly darker overlay for better contrast */
+            /* ADJUSTED: Darker overlay (0.65 opacity) for better content contrast */
+            background: rgba(0, 0, 0, 0.65); 
             z-index: -1; /* Layer on top of the image filter */
         }
 
@@ -162,7 +162,7 @@
                         <span class="hidden sm:inline">State Initiatives</span>
                         <span class="inline sm:hidden">Initiatives</span>
                     </button>
-                    </div>
+                </div>
             </div>
             
             </div>
@@ -556,27 +556,25 @@
             // Simple SPA View Controller
             const homeView = document.getElementById('home');
             const catalogView = document.getElementById('catalog');
-            // NEW VIEW
             const initiativesView = document.getElementById('initiatives'); 
-            // Select ALL elements with the .nav-link class
             const navLinks = document.querySelectorAll('.nav-link'); 
 
             function showView(viewId) {
                 // Hide all main content sections
                 homeView.style.display = 'none';
                 catalogView.style.display = 'none';
-                initiativesView.style.display = 'none'; // NEW HIDE
+                initiativesView.style.display = 'none';
 
                 const targetView = document.getElementById(viewId);
                 if (targetView) {
                     targetView.style.display = 'block';
                 }
 
-                // Update active state for the NAVBAR links only (those with a 'data-view')
+                // Update active state for the NAVBAR links only 
                 const navbarLinks = document.querySelectorAll('.nav-link[data-view]');
                 
                 navbarLinks.forEach(link => {
-                    // Only apply active/inactive styles to links that are in the navbar (i.e., not the button on the home page)
+                    // Check if the link is in the navbar (to exclude the button in the home content)
                     if(link.parentElement.parentElement.classList.contains('flex') && link.parentElement.parentElement.classList.contains('items-center')) {
                          if (link.dataset.view === viewId) {
                             // Active: Gold Text, Green Border (primary color)
@@ -601,7 +599,6 @@
 
             // Handle hash links for initial load
             const initialView = window.location.hash.substring(1) || 'home';
-            // Ensure the initial view is one of the valid sections
             if (['home', 'catalog', 'initiatives'].includes(initialView)) {
                 showView(initialView);
             } else {
