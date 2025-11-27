@@ -109,6 +109,26 @@
             color: var(--au-red); 
             transition: color 0.15s ease-in-out;
         }
+
+        /* Specific style for the initiative/state cards */
+        .initiative-card {
+            min-height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            background-color: rgba(255, 255, 255, 0.95); /* Nearly opaque white for clarity */
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .initiative-card:hover {
+            background-color: var(--au-gold-light); /* Light gold hover */
+            border-color: var(--au-green);
+        }
     </style>
 </head>
 <body class="min-h-screen">
@@ -137,7 +157,12 @@
                         <i data-lucide="calendar-check" class="inline-block w-5 h-5 mr-1"></i>
                         <span class="hidden sm:inline">Event Catalog</span>
                         <span class="inline sm:hidden">Events</span> </button>
-                </div>
+                    <button class="nav-link text-gray-700 font-semibold transition duration-150 py-2 sm:py-0" data-view="initiatives">
+                        <i data-lucide="map" class="inline-block w-5 h-5 mr-1"></i>
+                        <span class="hidden sm:inline">State Initiatives</span>
+                        <span class="inline sm:hidden">Initiatives</span>
+                    </button>
+                    </div>
             </div>
             
             </div>
@@ -185,7 +210,7 @@
                 </div>
             </div>
         </section>
-
+        
         <section id="catalog" class="content-section p-6 sm:p-8 bg-white rounded-xl shadow-2xl card">
             <h2 class="text-3xl sm:text-4xl font-extrabold mb-2 text-gray-900">Global African Languages Catalog</h2>
             <p class="text-base sm:text-lg text-gray-600 mb-8 leading-relaxed">
@@ -195,6 +220,244 @@
             <div id="event-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 </div>
         </section>
+
+        <section id="initiatives" class="content-section p-6 sm:p-8 bg-white rounded-xl shadow-2xl card">
+            <h2 class="text-3xl sm:text-4xl font-extrabold mb-2 text-gray-900 flex items-center">
+                <i data-lucide="flag-triangle-right" class="w-8 h-8 mr-3 text-au-secondary"></i>
+                ACALAN Initiatives by AU Member State
+            </h2>
+            <p class="text-base sm:text-lg text-gray-600 mb-8 leading-relaxed">
+                Explore the latest ACALAN-recognised, supported, or represented language initiatives across the 55 African Union Member States and the 6th Region (Diaspora). Click on a state to see detailed information (placeholder).
+            </p>
+            <div id="state-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6">
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Algeria</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Angola</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Benin</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Botswana</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Burkina Faso</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Burundi</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Cabo Verde</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Cameroon</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Central African Republic</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Chad</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Comoros</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Congo (Brazzaville)</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Congo (DRC)</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Côte d'Ivoire</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Djibouti</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Egypt</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Equatorial Guinea</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Eritrea</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Eswatini</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Ethiopia</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Gabon</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Gambia</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Ghana</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Guinea</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Guinea-Bissau</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Kenya</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Lesotho</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Liberia</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Libya</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Madagascar</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Malawi</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Mali</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Mauritania</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Mauritius</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Morocco</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Mozambique</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Namibia</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Niger</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Nigeria</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Rwanda</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Sahrawi Arab Democratic Republic</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">São Tomé and Príncipe</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Senegal</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Seychelles</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Sierra Leone</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Somalia</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">South Africa</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">South Sudan</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Sudan</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Tanzania</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Togo</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Tunisia</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Uganda</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Zambia</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-gray-300">
+                    <span class="font-bold text-lg text-gray-800">Zimbabwe</span>
+                    <span class="text-sm text-au-primary font-medium mt-1">Status: Initiative TBD</span>
+                </div>
+                <div class="initiative-card border-2 border-au-red bg-au-gold-light hover:bg-au-gold">
+                    <i data-lucide="users-2" class="w-6 h-6 text-au-red mb-1"></i>
+                    <span class="font-extrabold text-lg text-au-red">6th Region</span>
+                    <span class="text-sm text-gray-800 font-medium mt-1">Diaspora Initiatives</span>
+                </div>
+                
+            </div>
+            </section>
 
     </main>
 
@@ -293,30 +556,37 @@
             // Simple SPA View Controller
             const homeView = document.getElementById('home');
             const catalogView = document.getElementById('catalog');
-            // Select ALL elements with the .nav-link class, including the new button on the home page.
+            // NEW VIEW
+            const initiativesView = document.getElementById('initiatives'); 
+            // Select ALL elements with the .nav-link class
             const navLinks = document.querySelectorAll('.nav-link'); 
 
             function showView(viewId) {
+                // Hide all main content sections
                 homeView.style.display = 'none';
                 catalogView.style.display = 'none';
+                initiativesView.style.display = 'none'; // NEW HIDE
 
                 const targetView = document.getElementById(viewId);
                 if (targetView) {
                     targetView.style.display = 'block';
                 }
 
-                // Update active state for the NAVBAR links only (not the button in the home content)
-                const navbarLinks = document.querySelectorAll('.nav-link[data-view="home"], .nav-link[data-view="catalog"]');
+                // Update active state for the NAVBAR links only (those with a 'data-view')
+                const navbarLinks = document.querySelectorAll('.nav-link[data-view]');
                 
                 navbarLinks.forEach(link => {
-                    if (link.dataset.view === viewId) {
-                        // Active: Gold Text, Green Border (primary color)
-                        link.classList.add('text-au-secondary', 'border-b-2', 'border-au-primary');
-                        link.classList.remove('text-gray-700', 'hover:text-[--au-red]');
-                    } else {
-                        // Inactive: Gray Text, Red Hover, no border
-                        link.classList.remove('text-au-secondary', 'border-b-2', 'border-au-primary');
-                        link.classList.add('text-gray-700', 'hover:text-[--au-red]');
+                    // Only apply active/inactive styles to links that are in the navbar (i.e., not the button on the home page)
+                    if(link.parentElement.parentElement.classList.contains('flex') && link.parentElement.parentElement.classList.contains('items-center')) {
+                         if (link.dataset.view === viewId) {
+                            // Active: Gold Text, Green Border (primary color)
+                            link.classList.add('text-au-secondary', 'border-b-2', 'border-au-primary');
+                            link.classList.remove('text-gray-700', 'hover:text-[--au-red]');
+                        } else {
+                            // Inactive: Gray Text, Red Hover, no border
+                            link.classList.remove('text-au-secondary', 'border-b-2', 'border-au-primary');
+                            link.classList.add('text-gray-700', 'hover:text-[--au-red]');
+                        }
                     }
                 });
             }
@@ -331,7 +601,12 @@
 
             // Handle hash links for initial load
             const initialView = window.location.hash.substring(1) || 'home';
-            showView(initialView === 'catalog' ? 'catalog' : 'home');
+            // Ensure the initial view is one of the valid sections
+            if (['home', 'catalog', 'initiatives'].includes(initialView)) {
+                showView(initialView);
+            } else {
+                showView('home');
+            }
 
             // Render the events initially
             renderEventCards();
